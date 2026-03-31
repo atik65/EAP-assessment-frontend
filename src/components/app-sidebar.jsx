@@ -54,43 +54,53 @@ const data = {
     },
   ],
   navMain: [
+    // {
+    //   title: "Parent Menu",
+    //   url: "#",
+    //   icon: Frame,
+    //   isActive: true,
+    //   items: [
+    //     {
+    //       title: "Menu Item One",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Menu Item Two",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Menu Item Three",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Menu Item Four",
+    //       url: "#",
+    //     },
+    //   ],
+    // },
     {
-      title: "Parent Menu",
-      url: "#",
-      icon: Frame,
-      isActive: true,
-      items: [
-        {
-          title: "Menu Item One",
-          url: "#",
-        },
-        {
-          title: "Menu Item Two",
-          url: "#",
-        },
-        {
-          title: "Menu Item Three",
-          url: "#",
-        },
-        {
-          title: "Menu Item Four",
-          url: "#",
-        },
-      ],
+      title: "Categories",
+      url: "/categories",
+      icon: BookOpen,
     },
     {
-      title: "Single Link One",
-      url: "#",
-      icon: Map,
-    },
-    {
-      title: "Single Link Two",
-      url: "#",
+      title: "Products",
+      url: "/products",
       icon: PieChart,
     },
     {
-      title: "Single Link Three",
-      url: "#",
+      title: "Orders",
+      url: "/orders",
+      icon: Map,
+    },
+    {
+      title: "Restock Queue",
+      url: "/restock-queue",
+      icon: SquareTerminal,
+    },
+    {
+      title: "Activity Logs",
+      url: "/activity-logs",
       icon: Bot,
     },
   ],
@@ -103,9 +113,9 @@ export function AppSidebar({ ...props }) {
         <AppSidebarHeader intro={data.intro} />
       </SidebarHeader>
       <SidebarContent className={"border-r "}>
-        <NavMain groupLabel="Group One" items={data.navMain} />
-        <NavMain groupLabel="Group Two" items={data.navMain} />
-        <NavMain groupLabel="Group Three" items={data.navMain} />
+        <NavMain groupLabel="" items={data.navMain} />
+        {/* <NavMain groupLabel="Group Two" items={data.navMain} />
+        <NavMain groupLabel="Group Three" items={data.navMain} /> */}
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter className={"border-r "}>

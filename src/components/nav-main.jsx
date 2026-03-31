@@ -53,7 +53,12 @@ export function NavMain({ items, groupLabel = "" }) {
               </SidebarMenuItem>
             ) : (
               <SidebarMenuItem>
-                <SidebarMenuButton asChild>
+                <SidebarMenuButton
+                  className={
+                    "py-5 text-base  hover:bg-(--color-erp-primary) hover:text-accent"
+                  }
+                  asChild
+                >
                   <a href={item.url}>
                     <item.icon />
                     <span>{item.title}</span>
