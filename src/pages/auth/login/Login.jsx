@@ -8,6 +8,7 @@ import AuthLayout from "../AuthLayout";
 import authApi from "../api";
 import loginSchema from "./schema";
 import { setCookie } from "@/lib/cookies";
+import { toast } from "sonner";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -29,6 +30,7 @@ export default function Login() {
       await mutateAsync({
         data: loginData,
         api: authApi.login,
+        toast: false,
         handleDone: async (res) => {
           // if (res?.data?.otp_type) {
           //   navigate("/verify-otp", {
@@ -45,7 +47,18 @@ export default function Login() {
           setCookie("signedIn", "true");
           navigate("/");
         },
-        handleError: async (res) => {},
+        handleError: async (res) => {
+          console.log(res);
+          const errorMessage =
+            res?.data?.detail ||
+            res?.data?.message ||
+            "Login failed. Please try again.";
+
+          // toast.error(errorMessage, {
+          //   description: "Please check your credentials and try again.",
+          //   duration: 5000,
+          // });
+        },
       });
     } catch (error) {
       console.log(error);

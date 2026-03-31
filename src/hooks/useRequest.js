@@ -33,7 +33,7 @@ import { toast } from "sonner";
  *   addEditCacheKey: "documentTypeDetail", // Updates detail page cache (if exists)
  *   id: itemId,                     // Item ID = update operation
  *   handleDone: (res) => {},
- *   isToast: true, 
+ *   isToast: true,
  * });
  * ```
  *
@@ -82,14 +82,15 @@ export default function useRequest() {
           await variables?.form?.setError(
             error.field,
             { message: error.message },
-            { shouldFocus: true }
+            { shouldFocus: true },
           );
         });
       } else {
         toast.error(
-          err?.response?.data?.errors?.common?.msg ||
+          // err?.response?.data?.errors?.common?.msg ||
+          err?.response?.data?.detail ||
             err?.response?.data?.message ||
-            err?.message
+            err?.message,
         );
       }
 
@@ -116,7 +117,7 @@ export default function useRequest() {
               } else {
                 return paginationCrud(oldData, data, variables);
               }
-            }
+            },
           );
         }
 
@@ -206,7 +207,7 @@ const infiniteCrud = (oldData, data, variables) => {
         data: {
           ...page.data,
           data: page.data.data.map((curr) =>
-            curr.id === variables.id ? { ...curr, ...data.data } : curr
+            curr.id === variables.id ? { ...curr, ...data.data } : curr,
           ),
         },
       })),

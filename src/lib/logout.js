@@ -7,15 +7,15 @@ export default async function logout() {
     await axiosInstance({
       api: {
         method: "get",
-        endpoint: "/api/user/auth",
-        path: "/logout",
+        endpoint: "/api/auth",
+        path: "/http-logout",
       },
     });
   } catch (error) {
     console.error("Logout API error:", error);
   } finally {
     removeCookie("signedIn");
-    removeStoredValue("deskSession");
+    // removeStoredValue("deskSession");
     window.location.href = "/login";
   }
 }
