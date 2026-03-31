@@ -12,6 +12,9 @@ const MODAL_REGISTRY = {
       import("@/pages/demo/components/AddEdit"),
   ),
 
+  // Category modal
+  category: lazy(() => import("@/pages/categories/components/AddEdit")),
+
   // Add more modals as needed:
   // appointment: lazy(() => import('@/pages/appointments/components/AddEdit')),
   // user: lazy(() => import('@/pages/users/components/AddEdit')),
