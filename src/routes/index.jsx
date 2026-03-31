@@ -11,6 +11,7 @@ import ForgotPassword from "@/pages/auth/forgot-password/ForgotPassword";
 import VerifyOtp from "@/pages/auth/verify-otp/VerifyOtp";
 import ResetPassword from "@/pages/auth/reset-password/ResetPassword";
 import CategoriesList from "@/pages/categories/CategoriesList";
+import ProductsList from "@/pages/products/ProductsList";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ export const router = createBrowserRouter([
 
       // categoreis list
       { path: "/categories", element: <CategoriesList /> },
+      { path: "/products", element: <ProductsList /> },
 
       // {
       //   path: "/settings",
