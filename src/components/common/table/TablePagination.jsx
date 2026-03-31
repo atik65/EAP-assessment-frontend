@@ -16,7 +16,6 @@ import {
 } from "lucide-react";
 
 function TablePagination({ tableInfo, enableSelect }) {
-  console.log("TablePagination Info:", tableInfo);
   const { selectedRows, pagination, routerSyncParams, cacheKey } = tableInfo;
   const { page, per_page, prev_page, next_page, last_page, total, from, to } =
     pagination;
