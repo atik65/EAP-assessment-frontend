@@ -35,7 +35,6 @@ const Select = ({
     cacheKey,
   });
 
-
   const options = useMemo(() => {
     const modifiedList =
       [...manualOption, ...(data?.results || [])].map((item) => ({
@@ -44,7 +43,7 @@ const Select = ({
         img: item?.[optionSchema?.img],
       })) || [];
     return modifiedList;
-  }, [data?.data, manualOption, optionSchema]);
+  }, [data?.results, manualOption, optionSchema]);
   const isLoading = loading || loadingApi;
   return (
     <SelectList

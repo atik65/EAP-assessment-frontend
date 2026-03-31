@@ -12,6 +12,7 @@ import VerifyOtp from "@/pages/auth/verify-otp/VerifyOtp";
 import ResetPassword from "@/pages/auth/reset-password/ResetPassword";
 import CategoriesList from "@/pages/categories/CategoriesList";
 import ProductsList from "@/pages/products/ProductsList";
+import RestockQueueList from "@/pages/restock-queue/RestockQueueList";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ export const router = createBrowserRouter([
       // categoreis list
       { path: "/categories", element: <CategoriesList /> },
       { path: "/products", element: <ProductsList /> },
+      { path: "/restock-queue", element: <RestockQueueList /> },
 
       // {
       //   path: "/settings",
