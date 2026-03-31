@@ -15,9 +15,9 @@ export const restockQueueColumns = [
           <span className="font-medium text-slate-900">
             {row.product?.name}
           </span>
-          <span className="text-xs text-slate-500">
+          {/* <span className="text-xs text-slate-500">
             {row.product?.category || "-"}
-          </span>
+          </span> */}
         </div>
       );
     },
@@ -34,7 +34,7 @@ export const restockQueueColumns = [
             isOutOfStock ? "text-rose-600" : "text-slate-700",
           )}
         >
-          {row.stock_quantity}
+          {row.product?.stock_quantity}
         </span>
       );
     },
