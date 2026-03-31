@@ -2,8 +2,8 @@ import config from "@/config/base";
 import axios from "axios";
 
 const instanceApi = axios.create({
-  baseURL: config.baseURL,
-  // baseURL: "/",
+  // baseURL: config.baseURL,
+  baseURL: "/",
   withCredentials: true,
 });
 

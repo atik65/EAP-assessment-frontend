@@ -18,14 +18,14 @@ const queryClientInstance = new QueryClient({
     },
   },
   queryCache: new QueryCache({
-    onError: (error) => {
-      if (
-        error?.response?.status === 401 ||
-        error?.response?.data?.code === 401
-      ) {
-        handleUnauthorized();
-      }
-    },
+    // onError: (error) => {
+    //   if (
+    //     error?.response?.status === 401 ||
+    //     error?.response?.data?.code === 401
+    //   ) {
+    //     handleUnauthorized();
+    //   }
+    // },
   }),
   mutationCache: new MutationCache({
     onError: (error) => {
