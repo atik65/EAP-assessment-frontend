@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "http://127.0.0.1:8000/api/:path*"
+      "destination": "https://c6hjkkw4-8000.asse.devtunnels.ms/api/:path*"
     },
     {
       "source": "/(.*)",
