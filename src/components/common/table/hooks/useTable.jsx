@@ -2,7 +2,6 @@ import useApi from "@/hooks/useApi";
 import useSyncParams from "@/hooks/useSyncParams";
 import useSelect from "./useSelect";
 import { useEffect } from "react";
-import { appointmentMockData } from "@/pages/demo/utils/mockData";
 
 const useTable = ({ filter, api, apiCacheKey, staleTime }) => {
   const { selectedRows, handleRowSelect, handleSelectAll, handleUnselectAll } =
@@ -34,15 +33,38 @@ const useTable = ({ filter, api, apiCacheKey, staleTime }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParamsSyncParams]);
 
-  // here commented out real api data and used mock data for demo purpose -- remove mock data and uncomment real api data when integrating with real api
+  // Django REST Framework pagination response:
+  // {
+  //   "count": 1,
+  //   "next": null,
+  //   "previous": null,
+  //   "results": [...]
+  // }
+
+  // console.log("Table Data:", data); // Debug log for API response
+
+  // Calculate pagination values based on DRF response
+  const total = data?.count || 0;
+  const currentPage = Number(page);
+  const itemsPerPage = Number(per_page);
+  const lastPage = Math.ceil(total / itemsPerPage) || 1;
+  const from = total > 0 ? (currentPage - 1) * itemsPerPage + 1 : 0;
+  const to = Math.min(currentPage * itemsPerPage, total);
 
   const tableInfo = {
-    // data: data?.data ?? [],
-    data: { data: appointmentMockData },
+    data: {
+      data: data?.results || [],
+      items: data?.results || [], // For select all functionality
+    },
     pagination: {
-      ...data?.data?.pagination,
-      page: Number(page),
-      per_page: Number(per_page),
+      page: currentPage,
+      per_page: itemsPerPage,
+      total,
+      lastPage,
+      from,
+      to,
+      next_page: data?.next ? currentPage + 1 : null,
+      prev_page: data?.previous ? currentPage - 1 : null,
     },
     routerSyncParams,
     handleRowSelect,
@@ -50,9 +72,7 @@ const useTable = ({ filter, api, apiCacheKey, staleTime }) => {
     handleUnselectAll,
     selectedRows,
     cacheKey: apiCacheKey,
-
-    // isLoading,
-    isLoading: false,
+    isLoading,
   };
   return { tableInfo };
 };

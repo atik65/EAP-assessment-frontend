@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Edit, Trash2 } from "lucide-react";
 import ActionDialogDelete from "@/components/common/ActionDialogDelete";
+import categoryApi from "../api";
 
 export const categoryColumns = [
   {
@@ -50,6 +51,8 @@ export const categoryColumns = [
     header: "ACTIONS",
     accessorKey: "actions",
     cell: ({ row, logics }) => {
+      const hasProducts = row.product_count > 0;
+
       return (
         <div className="flex items-center gap-2">
           <Button
@@ -61,27 +64,38 @@ export const categoryColumns = [
             <Edit className="h-4 w-4" />
             <span className="text-xs">Edit</span>
           </Button>
-          <ActionDialogDelete
-            id={row.id}
-            cacheKey="categories"
-            title="Delete Category"
-            description={`Are you sure you want to delete "${row.name}"? ${
-              row.product_count > 0
-                ? "This category has products and cannot be deleted."
-                : "This action cannot be undone."
-            }`}
-            trigger={
-              <Button
-                variant="ghost"
-                size="sm"
-                className="text-rose-600 hover:text-rose-700 gap-1"
-                disabled={row.product_count > 0}
-              >
-                <Trash2 className="h-4 w-4" />
-                <span className="text-xs">Delete</span>
-              </Button>
-            }
-          />
+
+          {hasProducts ? (
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-slate-400 cursor-not-allowed gap-1"
+              disabled
+              title="Cannot delete category with products"
+            >
+              <Trash2 className="h-4 w-4" />
+              <span className="text-xs">Delete</span>
+            </Button>
+          ) : (
+            <ActionDialogDelete
+              name={row.name}
+              request={{
+                id: row.id,
+                api: categoryApi.delete(row.id),
+                cacheKey: categoryApi.cacheKey,
+              }}
+              trigger={
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-rose-600 hover:text-rose-700 gap-1"
+                >
+                  <Trash2 className="h-4 w-4" />
+                  <span className="text-xs">Delete</span>
+                </Button>
+              }
+            />
+          )}
         </div>
       );
     },

@@ -13,6 +13,7 @@ import useRequest from "@/hooks/useRequest";
 import { Loader2 } from "lucide-react";
 import categoryApi from "../api";
 import categorySchema from "../utils/schema";
+import { revalidateCache } from "@/lib/queryInstance";
 
 const AddEdit = ({ open, onClose, editData = null }) => {
   const { mutateAsync, isPending } = useRequest();
@@ -33,8 +34,9 @@ const AddEdit = ({ open, onClose, editData = null }) => {
         api: isEditMode ? categoryApi.update(editData.id) : categoryApi.create,
         cacheKey: categoryApi.cacheKey,
         handleDone: async () => {
-          onClose();
           form.reset();
+          revalidateCache(categoryApi.cacheKey);
+          onClose();
         },
       });
     } catch (error) {

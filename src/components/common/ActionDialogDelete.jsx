@@ -13,6 +13,7 @@ import useRequest from "@/hooks/useRequest";
 import { LoaderCircle } from "lucide-react";
 import { useRef } from "react";
 import TooltipControl from "./TooltipControl";
+import { revalidateCache } from "@/lib/queryInstance";
 
 /**
  * ActionDialogDelete Component - Reusable delete confirmation dialog
@@ -69,7 +70,10 @@ const ActionDialogDelete = ({ request, trigger, name }) => {
           <AlertDialogCancel ref={closeRef}>Cancel</AlertDialogCancel>
           <ActionDeleteRequest
             request={request}
-            onclose={() => closeRef.current.click()}
+            onclose={() => {
+              closeRef.current.click();
+              revalidateCache(request.cacheKey); // Ensure cache is updated after deletion
+            }}
           />
         </AlertDialogFooter>
       </AlertDialogContent>
@@ -83,6 +87,7 @@ const ActionDeleteRequest = ({ request, onclose }) => {
   async function handleDelete() {
     try {
       await mutateAsync(request);
+
       onclose();
     } catch (error) {}
   }

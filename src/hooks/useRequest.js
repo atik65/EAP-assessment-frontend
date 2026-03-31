@@ -112,10 +112,10 @@ export default function useRequest() {
             },
             (oldData) => {
               if (!oldData) return oldData;
-              if (oldData.pages) {
+              if (oldData?.pages) {
                 return infiniteCrud(oldData, data, variables);
               } else {
-                return paginationCrud(oldData, data, variables);
+                // return paginationCrud(oldData, data, variables);
               }
             },
           );
