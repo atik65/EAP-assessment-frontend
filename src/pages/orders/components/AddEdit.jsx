@@ -78,111 +78,120 @@ const AddEdit = ({ open, onClose }) => {
           </SheetDescription>
         </SheetHeader>
 
-        <FormikWrapper form={form} onSubmit={onSubmit} className="mt-6">
-          <div className="space-y-6">
-            {/* Customer Name */}
-            <FieldInput
-              form={form}
-              name="customer_name"
-              label="Customer Name"
-              placeholder="Enter customer name"
-              required
-            />
+        <div className="mt-6 px-5">
+          <FormikWrapper form={form}>
+            <div className="space-y-5">
+              {/* Customer Name */}
+              <FieldInput
+                form={form}
+                name="customer_name"
+                label="Customer Name"
+                placeholder="Enter customer name"
+                required
+              />
 
-            {/* Order Items */}
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <label className="text-sm font-medium text-slate-700">
-                  Order Items <span className="text-red-500">*</span>
-                </label>
+              {/* Order Items */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <label className="text-sm font-medium text-slate-700">
+                    Order Items <span className="text-red-500">*</span>
+                  </label>
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={addItem}
+                    className="flex items-center gap-1"
+                  >
+                    <Plus className="h-4 w-4" />
+                    Add Item
+                  </Button>
+                </div>
+
+                {/* Display form-level items error */}
+                {form.formState.errors.items?.message && (
+                  <p className="text-sm text-red-500">
+                    {form.formState.errors.items.message}
+                  </p>
+                )}
+
+                <div className="space-y-3">
+                  {fields.map((field, index) => (
+                    <div
+                      key={field.id}
+                      className="flex items-start gap-2 p-4 border rounded-lg bg-slate-50"
+                    >
+                      <div className="flex-1 space-y-3">
+                        <Select
+                          form={form}
+                          name={`items.${index}.product_id`}
+                          placeholder="Select product"
+                          api={productApi.list}
+                          cacheKey={productApi.cacheKey}
+                          filter={{ status: "active" }}
+                          optionSchema={{
+                            id: "id",
+                            label: "name",
+                          }}
+                          required
+                        />
+
+                        <FieldInput
+                          form={form}
+                          name={`items.${index}.quantity`}
+                          label="Quantity"
+                          type="number"
+                          placeholder="Enter quantity"
+                          min={1}
+                          required
+                        />
+                      </div>
+
+                      {fields.length > 1 && (
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => removeItem(index)}
+                          className="text-red-600 hover:text-red-700 hover:bg-red-50 mt-6"
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex gap-3 pt-4">
+                <Button
+                  type="submit"
+                  disabled={isPending}
+                  className="flex-1 bg-(--color-erp-primary) hover:bg-erp-primary/90"
+                >
+                  {isPending ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Creating...
+                    </>
+                  ) : (
+                    <>Create Order</>
+                  )}
+                </Button>
                 <Button
                   type="button"
-                  size="sm"
                   variant="outline"
-                  onClick={addItem}
-                  className="flex items-center gap-1"
+                  onClick={handleClose}
+                  disabled={isPending}
+                  className="flex-1"
                 >
-                  <Plus className="h-4 w-4" />
-                  Add Item
+                  Cancel
                 </Button>
               </div>
-
-              {/* Display form-level items error */}
-              {form.formState.errors.items?.message && (
-                <p className="text-sm text-red-500">
-                  {form.formState.errors.items.message}
-                </p>
-              )}
-
-              <div className="space-y-3">
-                {fields.map((field, index) => (
-                  <div
-                    key={field.id}
-                    className="flex items-start gap-2 p-4 border rounded-lg bg-slate-50"
-                  >
-                    <div className="flex-1 space-y-3">
-                      <Select
-                        form={form}
-                        name={`items.${index}.product_id`}
-                        placeholder="Select product"
-                        api={productApi.list}
-                        cacheKey={productApi.cacheKey}
-                        filter={{ status: "active" }}
-                        optionSchema={{
-                          id: "id",
-                          label: "name",
-                        }}
-                        required
-                      />
-
-                      <FieldInput
-                        form={form}
-                        name={`items.${index}.quantity`}
-                        label="Quantity"
-                        type="number"
-                        placeholder="Enter quantity"
-                        min={1}
-                        required
-                      />
-                    </div>
-
-                    {fields.length > 1 && (
-                      <Button
-                        type="button"
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => removeItem(index)}
-                        className="text-red-600 hover:text-red-700 hover:bg-red-50 mt-6"
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </Button>
-                    )}
-                  </div>
-                ))}
-              </div>
             </div>
-
-            {/* Action Buttons */}
-            <div className="flex justify-end gap-3 pt-4 border-t">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={handleClose}
-                disabled={isPending}
-              >
-                Cancel
-              </Button>
-              <Button
-                type="submit"
-                disabled={isPending}
-                className="bg-(--color-erp-primary) hover:bg-erp-primary/90"
-              >
-                {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                Create Order
-              </Button>
-            </div>
-          </div>
-        </FormikWrapper>
+          </FormikWrapper>
+        </div>
       </SheetContent>
     </Sheet>
   );
