@@ -71,7 +71,7 @@ const CategoriesList = () => {
                     </p>
                   </div>
                   <Button
-                    className="bg-emerald-600 hover:bg-emerald-700 w-full md:w-auto"
+                    className="bg-(--color-erp-primary) hover:bg-erp-primary/90 w-full md:w-auto"
                     onClick={handleAdd}
                   >
                     <Plus className="mr-2 h-4 w-4" />
