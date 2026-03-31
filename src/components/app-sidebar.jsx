@@ -109,7 +109,7 @@ const data = {
 export function AppSidebar({ ...props }) {
   return (
     <Sidebar className={"border-none "} collapsible="icon" {...props}>
-      <SidebarHeader className={"bg-[#0f6b47] text-white "}>
+      <SidebarHeader className={"bg-(--color-erp-primary)  text-white "}>
         <AppSidebarHeader intro={data.intro} />
       </SidebarHeader>
       <SidebarContent className={"border-r "}>

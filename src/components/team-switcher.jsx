@@ -91,14 +91,14 @@ export function AppSidebarHeader({ intro }) {
         <div
           size="default"
           isActive={false}
-          className=" data-[state=open]:bg-white/10 data-[state=open]:text-sidebar-accent-foreground hover:bg-white/10  hover:text-white border-b border-[#363D49] p-2 rounded-none   h-16 flex gap-3 items-center transition-[width,height,padding] cursor-pointer"
+          className=" data-[state=open]:bg-white/10 data-[state=open]:text-sidebar-accent-foreground hover:bg-white/10  hover:text-white border-b-0 border-[#363D49] p-2 rounded-none   h-16 flex gap-3 items-center transition-[width,height,padding] cursor-pointer"
         >
           {/* <div className="bg-white/10 flex aspect-square size-8 items-center justify-center rounded-md"> */}
           {/* <intro.logo className="size-4 " /> */}
           {/* <Image src={"/logo.png"} /> */}
           <div
-            className=" h-11 w-11 group-data-[collapsible=icon]:w-8
-          group-data-[collapsible=icon]:h-8  bg-[#8552FD] rounded-md flex justify-around items-center text-white font-bold "
+            className=" h-10 w-10 group-data-[collapsible=icon]:w-8
+          group-data-[collapsible=icon]:h-8  bg-[#8552FD] border rounded-md flex justify-around items-center text-white font-bold "
           >
             MP
           </div>

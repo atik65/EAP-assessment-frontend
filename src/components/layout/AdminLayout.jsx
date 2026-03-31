@@ -39,7 +39,7 @@ const AdminLayout = ({ children }) => {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="sticky top-0 bg-background z-50 border-b flex h-16 shrink-0 items-center gap-2 transition-[width,height]  ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-16 ">
+        <header className="sticky top-0 bg-background z-50 border-b-0 flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-16 ">
           <LayoutHeader />
         </header>
 
@@ -61,7 +61,7 @@ const LayoutHeader = () => {
   };
 
   return (
-    <div className="flex items-center justify-between h-full gap-2 px-4 bg-[#0f6b47] text-white shadow-sm w-full">
+    <div className="flex items-center justify-between h-full gap-2 px-4 bg-(--color-erp-primary) text-white shadow-sm w-full">
       <div className="flex items-center gap-2">
         <SidebarTrigger className="-ml-1 hover:bg-white/20 hover:text-white" />
         <Separator

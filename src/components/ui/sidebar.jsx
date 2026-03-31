@@ -304,7 +304,7 @@ function SidebarInput({ className, ...props }) {
 function SidebarHeader({ className, ...props }) {
   return (
     <div
-      data-slot="sidebar-header"
+      data-slot="sidebar-header "
       data-sidebar="header"
       className={cn("flex flex-col gap-2 ", className)}
       {...props}

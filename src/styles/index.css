@@ -124,7 +124,8 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   /* ERP Colors */
-  --color-erp-primary: #4f46e5;
+  /* --color-erp-primary: #4f46e5; */
+  --color-erp-primary: #8552fd;
   --color-erp-primary-dark: #4338ca;
   --color-erp-primary-light: #6366f1;
   --color-erp-black: #000000;
