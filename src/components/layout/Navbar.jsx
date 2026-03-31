@@ -5,6 +5,10 @@ import { ChevronDown } from "lucide-react";
 
 const NAV_ITEMS = [
   { key: "overview", label: "Overview", path: "/" },
+  { key: "categories", label: "Categories", path: "/categories" },
+  { key: "products", label: "Products", path: "/products" },
+  { key: "orders", label: "Orders", path: "/orders" },
+  { key: "restock-queue", label: "Restock Queue", path: "/restock-queue" },
   { key: "appointments", label: "Appointments", path: "/appointments" },
   // {
   //   key: "document",
@@ -13,7 +17,6 @@ const NAV_ITEMS = [
   // },
   { key: "session", label: "Session Management", path: "/session-management" },
   { key: "users", label: "Users", path: "/users" },
-  { key: "categories", label: "Categories", path: "/categories" },
   {
     key: "doc-category",
     label: "Category Management",

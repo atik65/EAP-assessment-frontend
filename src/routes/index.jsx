@@ -13,6 +13,7 @@ import ResetPassword from "@/pages/auth/reset-password/ResetPassword";
 import CategoriesList from "@/pages/categories/CategoriesList";
 import ProductsList from "@/pages/products/ProductsList";
 import RestockQueueList from "@/pages/restock-queue/RestockQueueList";
+import OrdersList from "@/pages/orders/OrdersList";
 
 export const router = createBrowserRouter([
   {
