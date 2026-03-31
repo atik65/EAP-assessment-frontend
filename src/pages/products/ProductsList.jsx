@@ -117,60 +117,62 @@ const ProductsList = () => {
                 </div>
 
                 {/* Filters */}
-                <div className="flex items-center gap-2 flex-col md:flex-row mb-4">
-                  <TableSearch
-                    placeholder="Search by product name..."
-                    searchTableParams={search}
-                    tableInfo={tableInfo}
-                    className="w-full md:flex-1"
-                  />
-                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                  <div className="flex items-center gap-2 flex-col md:flex-row mb-0">
+                    <TableSearch
+                      placeholder="Search by product name..."
+                      searchTableParams={search}
+                      tableInfo={tableInfo}
+                      className="w-full md:flex-1"
+                    />
+                  </div>
 
-                <div className="flex items-center gap-2 flex-wrap">
-                  <Select
-                    inputClassName="min-w-[180px]"
-                    placeholder="All Status"
-                    optionSchema={{ id: "id", label: "label" }}
-                    manualOption={statusOptions}
-                    value={statusParam}
-                    setValue={handleStatusChange}
-                  />
+                  <div className="flex flex-col sm:flex-row items-center gap-2 ">
+                    <Select
+                      inputClassName="min-w-[140px]"
+                      placeholder="All Status"
+                      optionSchema={{ id: "id", label: "label" }}
+                      manualOption={statusOptions}
+                      value={statusParam}
+                      setValue={handleStatusChange}
+                    />
 
-                  <Select
-                    inputClassName="min-w-[180px]"
-                    placeholder="All Categories"
-                    api={categoryApi.list}
-                    optionSchema={{ id: "id", label: "name" }}
-                    value={categoryParam}
-                    setValue={handleCategoryChange}
-                  />
+                    <Select
+                      inputClassName="min-w-[140px]"
+                      placeholder="All Categories"
+                      api={categoryApi.list}
+                      optionSchema={{ id: "id", label: "name" }}
+                      value={categoryParam}
+                      setValue={handleCategoryChange}
+                    />
 
-                  <Select
-                    inputClassName="min-w-[200px]"
-                    placeholder="Sort by..."
-                    optionSchema={{ id: "id", label: "label" }}
-                    manualOption={orderingOptions}
-                    value={orderingParam}
-                    setValue={handleOrderingChange}
-                  />
+                    <Select
+                      inputClassName="min-w-[140px]"
+                      placeholder="Sort by..."
+                      optionSchema={{ id: "id", label: "label" }}
+                      manualOption={orderingOptions}
+                      value={orderingParam}
+                      setValue={handleOrderingChange}
+                    />
 
-                  {(statusParam || categoryParam || search) && (
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() =>
-                        routerSyncParams({
-                          status: "",
-                          category: "",
-                          search: "",
-                          page: 1,
-                        })
-                      }
-                      className="text-slate-600 hover:text-slate-900"
-                    >
-                      Clear Filters
-                    </Button>
-                  )}
+                    {(statusParam || categoryParam || search) && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() =>
+                          routerSyncParams({
+                            status: "",
+                            category: "",
+                            search: "",
+                            page: 1,
+                          })
+                        }
+                        className="text-slate-600 hover:text-slate-900"
+                      >
+                        Clear Filters
+                      </Button>
+                    )}
+                  </div>
                 </div>
               </div>
             </>
