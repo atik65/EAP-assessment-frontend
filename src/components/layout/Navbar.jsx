@@ -13,6 +13,7 @@ const NAV_ITEMS = [
   // },
   { key: "session", label: "Session Management", path: "/session-management" },
   { key: "users", label: "Users", path: "/users" },
+  { key: "categories", label: "Categories", path: "/categories" },
   {
     key: "doc-category",
     label: "Category Management",
@@ -109,7 +110,7 @@ const Navbar = () => {
                   "relative py-4 text-sm font-medium transition-colors hover:text-gray-900 flex items-center gap-1",
                   isActive(item.path) || isParentActive(item)
                     ? "text-gray-900"
-                    : "text-gray-500"
+                    : "text-gray-500",
                 )}
               >
                 {item.label}
@@ -140,7 +141,7 @@ const Navbar = () => {
                                   "w-full text-left px-4 py-2 text-sm transition-colors hover:bg-gray-50",
                                   isActive(nestedItem.path)
                                     ? "text-emerald-600 font-medium"
-                                    : "text-gray-700"
+                                    : "text-gray-700",
                                 )}
                               >
                                 {nestedItem.label}
@@ -158,7 +159,7 @@ const Navbar = () => {
                             "w-full text-left px-4 py-2 text-sm transition-colors hover:bg-gray-50",
                             isActive(subItem.path)
                               ? "text-emerald-600 font-medium"
-                              : "text-gray-700"
+                              : "text-gray-700",
                           )}
                         >
                           {subItem.label}
@@ -180,7 +181,7 @@ const Navbar = () => {
                             "w-full text-left px-4 py-2 text-sm transition-colors hover:bg-gray-50",
                             isActive(subItem.path)
                               ? "text-emerald-600 font-medium"
-                              : "text-gray-700"
+                              : "text-gray-700",
                           )}
                         >
                           {subItem.label}
