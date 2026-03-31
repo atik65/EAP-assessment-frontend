@@ -113,10 +113,10 @@ const OrdersList = () => {
                     placeholder="Search by order number or customer name..."
                     searchTableParams={search}
                     tableInfo={tableInfo}
-                    className="w-full md:flex-1"
+                    className="w-full md:w-96 "
                   />
                   <Select
-                    inputClassName="min-w-[180px]"
+                    inputClassName="min-w-[180px] md:max-w-[200px]"
                     placeholder="All Status"
                     manualOption={statusOptions}
                     optionSchema={{ id: "id", label: "label" }}
@@ -124,7 +124,7 @@ const OrdersList = () => {
                     setValue={handleStatusChange}
                   />
                   <Select
-                    inputClassName="min-w-[200px]"
+                    inputClassName="min-w-[200px] md:max-w-[200px]"
                     placeholder="Sort by"
                     manualOption={orderingOptions}
                     optionSchema={{ id: "id", label: "label" }}
