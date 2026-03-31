@@ -10,6 +10,7 @@ import Signup from "@/pages/auth/signup/Signup";
 import ForgotPassword from "@/pages/auth/forgot-password/ForgotPassword";
 import VerifyOtp from "@/pages/auth/verify-otp/VerifyOtp";
 import ResetPassword from "@/pages/auth/reset-password/ResetPassword";
+import CategoriesList from "@/pages/categories/CategoriesList";
 
 export const router = createBrowserRouter([
   {
@@ -21,10 +22,13 @@ export const router = createBrowserRouter([
       { path: "/profile/update", element: <UpdateProfile /> },
       { path: "/profile/change-password", element: <ChangePassword /> },
 
-      {
-        path: "/settings",
-        children: [],
-      },
+      // categoreis list
+      { path: "/categories", element: <CategoriesList /> },
+
+      // {
+      //   path: "/settings",
+      //   children: [],
+      // },
     ],
   },
   {
