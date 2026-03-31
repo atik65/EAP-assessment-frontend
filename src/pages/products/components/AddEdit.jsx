@@ -58,9 +58,7 @@ const AddEdit = ({ open, onClose, editData = null }) => {
     openModal("category", {
       onClose: () => revalidateCache(categoryApi.cacheKey),
     });
-    };
-    
-    
+  };
 
   return (
     <Sheet open={open} onOpenChange={handleClose}>
@@ -92,6 +90,7 @@ const AddEdit = ({ open, onClose, editData = null }) => {
                 placeholder="Select a category"
                 api={categoryApi.list}
                 optionSchema={{ id: "id", label: "name" }}
+                cacheKey={categoryApi.cacheKey}
                 onAddNew={handleAddCategory}
                 required
               />
