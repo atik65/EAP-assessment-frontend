@@ -9,10 +9,12 @@ import authApi from "../api";
 import loginSchema from "./schema";
 import { setCookie } from "@/lib/cookies";
 import { toast } from "sonner";
+import { useState } from "react";
 
 export default function Login() {
   const navigate = useNavigate();
   const { mutateAsync } = useRequest();
+  const [isDemo, setIsDemo] = useState(false);
 
   const form = useFormik({
     schema: loginSchema.validation,
@@ -22,6 +24,14 @@ export default function Login() {
   });
 
   const { isSubmitting, isValid } = form.formState;
+
+  // Demo login handler
+  function handleDemoLogin() {
+    form.setValue("email", "atik.hasan.dev@gmail.com");
+    form.setValue("password", "password");
+    setIsDemo(true);
+    form.handleSubmit(onSubmit)();
+  }
 
   async function onSubmit(data) {
     try {
@@ -102,30 +112,27 @@ export default function Login() {
         </div>
 
         <div className="flex flex-col gap-3">
+          {/* main Login */}
           <Button
             type="submit"
             className="w-full"
             disabled={!isValid || isSubmitting}
           >
-            {isSubmitting ? "Signing in..." : "Sign in"}
+            {isSubmitting && !isDemo ? "Signing in..." : "Sign in"}
           </Button>
-          {/* <div className="flex flex-col items-center justify-between text-sm text-muted-foreground">
-            <Link
-              to="/forgot-password"
-              className="font-medium text-emerald-700 hover:underline dark:text-emerald-200"
-            >
-              Forgot password?
-            </Link>
-            <div className="flex items-center gap-1">
-              <span>New to the console?</span>
-              <Link
-                to="/register"
-                className="font-medium text-emerald-700 hover:underline dark:text-emerald-200"
-              >
-                Request access
-              </Link>
-            </div>
-          </div> */}
+
+          {/* Demo Login */}
+          <Button
+            type="button"
+            variant="outline"
+            className="w-full"
+            disabled={isSubmitting}
+            onClick={handleDemoLogin}
+          >
+            {isSubmitting && isDemo
+              ? "Signing in..."
+              : "Sign in with demo account"}
+          </Button>
         </div>
       </FormikWrapper>
     </AuthLayout>
