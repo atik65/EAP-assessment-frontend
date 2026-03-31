@@ -58,7 +58,9 @@ const AddEdit = ({ open, onClose, editData = null }) => {
     openModal("category", {
       onClose: () => revalidateCache(categoryApi.cacheKey),
     });
-  };
+    };
+    
+    
 
   return (
     <Sheet open={open} onOpenChange={handleClose}>

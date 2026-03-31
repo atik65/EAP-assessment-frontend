@@ -34,9 +34,11 @@ const Select = ({
     params,
     cacheKey,
   });
+
+
   const options = useMemo(() => {
     const modifiedList =
-      [...manualOption, ...(data?.data || [])].map((item) => ({
+      [...manualOption, ...(data?.results || [])].map((item) => ({
         id: item?.[optionSchema?.id],
         label: item?.[optionSchema?.label],
         img: item?.[optionSchema?.img],
