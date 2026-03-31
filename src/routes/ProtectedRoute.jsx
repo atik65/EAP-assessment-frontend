@@ -7,7 +7,7 @@ export default function ProtectedRoute() {
   const isLoggedIn = getCookie("signedIn") === "true";
   usePageTitle();
 
-  return !isLoggedIn ? (
+  return isLoggedIn ? (
     <AdminLayout>
       <Outlet />
     </AdminLayout>

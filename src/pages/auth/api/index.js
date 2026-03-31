@@ -1,9 +1,10 @@
-const endpoint = "/api/admin/auth";
+const endpoint = "/api/auth";
 
 const authApi = {
   login: {
     endpoint,
-    path: "/login",
+    // path: "/login/",
+    path: "/http-login/",
     method: "post",
   },
 

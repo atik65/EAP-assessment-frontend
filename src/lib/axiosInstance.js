@@ -1,8 +1,9 @@
+import config from "@/config/base";
 import axios from "axios";
 
 const instanceApi = axios.create({
-  // baseURL: config.baseURL,
-  baseURL: "/",
+  baseURL: config.baseURL,
+  // baseURL: "/",
   withCredentials: true,
 });
 
@@ -29,7 +30,7 @@ async function axiosInstance({
     onDownloadProgress,
     responseType,
     headers: {
-      Authorization: authHeader,
+      // Authorization: authHeader,
       ...headers,
     },
   });

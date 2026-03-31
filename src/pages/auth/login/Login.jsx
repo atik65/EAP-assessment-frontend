@@ -30,14 +30,20 @@ export default function Login() {
         data: loginData,
         api: authApi.login,
         handleDone: async (res) => {
-          if (res?.data?.otp_type) {
-            navigate("/verify-otp", {
-              state: { email: data.email, type: res.data.otp_type },
-            });
-          } else {
-            setCookie("signedIn", "true");
-            navigate("/");
-          }
+          // if (res?.data?.otp_type) {
+          //   navigate("/verify-otp", {
+          //     state: { email: data.email, type: res.data.otp_type },
+          //   });
+          // } else {
+          //   setCookie("signedIn", "true");
+          //   navigate("/");
+          // }
+
+          // console.log(res);
+          // return;
+
+          setCookie("signedIn", "true");
+          navigate("/");
         },
         handleError: async (res) => {},
       });
@@ -48,8 +54,9 @@ export default function Login() {
 
   return (
     <AuthLayout
-      title="Sign in to the Embassy Console"
-      subtitle="Access internal tools to manage consular services, news, and emergency support."
+      // title="Sign in to Smart Inventory & Order Management System"
+      title="Sign in to your account"
+      subtitle="Enter your email and password to access your account."
     >
       <FormikWrapper form={form} className="space-y-6">
         <div className="space-y-4">

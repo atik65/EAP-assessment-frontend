@@ -3,7 +3,7 @@ import debounce from "./debounce";
 import logout from "./logout";
 
 const handleUnauthorized = async () => {
-  await logout();
+  // await logout();
 };
 
 const queryClientInstance = new QueryClient({
