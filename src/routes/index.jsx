@@ -28,6 +28,7 @@ export const router = createBrowserRouter([
       { path: "/categories", element: <CategoriesList /> },
       { path: "/products", element: <ProductsList /> },
       { path: "/restock-queue", element: <RestockQueueList /> },
+      { path: "/orders", element: <OrdersList /> },
 
       // {
       //   path: "/settings",
