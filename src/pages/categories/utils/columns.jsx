@@ -50,6 +50,9 @@ export const categoryColumns = [
   {
     header: "ACTIONS",
     accessorKey: "actions",
+    classCell: "justify-end flex",
+    classHeader: "justify-end flex items-center ",
+
     cell: ({ row, logics }) => {
       const hasProducts = row.product_count > 0;
 

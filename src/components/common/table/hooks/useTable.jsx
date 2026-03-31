@@ -17,7 +17,7 @@ const useTable = ({ filter, api, apiCacheKey, staleTime }) => {
   const per_page =
     (isNaN(per_pageParams) || per_pageParams < 1 ? 10 : per_pageParams) ?? 10;
 
-  const { data, isLoading } = useApi({
+  const { data, isLoading, isFetching } = useApi({
     params: {
       page,
       limit: per_page,
@@ -72,7 +72,7 @@ const useTable = ({ filter, api, apiCacheKey, staleTime }) => {
     handleUnselectAll,
     selectedRows,
     cacheKey: apiCacheKey,
-    isLoading,
+    isLoading: isLoading || isFetching,
   };
   return { tableInfo };
 };
