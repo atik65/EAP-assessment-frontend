@@ -25,6 +25,7 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import { useNavigate } from "react-router-dom";
 
 const data = {
   intro: {
@@ -107,9 +108,14 @@ const data = {
 };
 
 export function AppSidebar({ ...props }) {
+  const navigate = useNavigate();
+
   return (
     <Sidebar className={"border-none "} collapsible="icon" {...props}>
-      <SidebarHeader className={"bg-(--color-erp-primary)  text-white "}>
+      <SidebarHeader
+        onClick={() => navigate("/")}
+        className={"bg-(--color-erp-primary)  text-white "}
+      >
         <AppSidebarHeader intro={data.intro} />
       </SidebarHeader>
       <SidebarContent className={"border-r "}>
@@ -119,7 +125,7 @@ export function AppSidebar({ ...props }) {
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter className={"border-r "}>
-        <NavUser user={data.user} />
+        {/* <NavUser user={data.user} /> */}
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

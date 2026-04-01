@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
     element: <ProtectedRoute />,
     children: [
       // { path: "/", element: <Overview /> },
-      { path: "/", element: <DemoList /> },
+      { path: "/", element: <CategoriesList /> },
       { path: "/profile", element: <Profile /> },
       { path: "/profile/update", element: <UpdateProfile /> },
       { path: "/profile/change-password", element: <ChangePassword /> },

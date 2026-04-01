@@ -10,6 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
+import { toast } from "sonner";
 
 export const UserNav = ({ userProfile, onLogout }) => {
   const navigate = useNavigate();
@@ -66,14 +67,17 @@ export const UserNav = ({ userProfile, onLogout }) => {
         <DropdownMenuSeparator />
         <DropdownMenuItem
           className="cursor-pointer"
-          onClick={() => navigate("/profile")}
+          // onClick={() => navigate("/profile")}
+          onClick={() => toast.info("My Profile feature is coming soon!")}
         >
           <User className="mr-2 h-4 w-4" />
           <span>My Profile</span>
         </DropdownMenuItem>
         <DropdownMenuItem
           className="cursor-pointer"
-          onClick={() => navigate("/profile/change-password")}
+          // onClick={() => navigate("/profile/change-password")}
+
+          onClick={() => toast.info("Change Password feature is coming soon!")}
         >
           <KeyRound className="mr-2 h-4 w-4" />
           <span>Change Password</span>
