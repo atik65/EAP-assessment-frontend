@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import signupSchema from "./schema";
 import AuthLayout from "../AuthLayout";
 import authApi from "../api";
+import Notice from "../notice/Notice";
 import { setCookie } from "@/lib/cookies";
 import { setStoredValue } from "@/lib/storage";
 import { toast } from "sonner";
@@ -89,6 +90,7 @@ export default function Signup() {
       title="Create your account"
       subtitle="Sign up to get started with the Smart Inventory & Order Management System."
     >
+      {/* <Notice /> */}
       <FormikWrapper form={form} className="space-y-6">
         <div className="space-y-4">
           <FieldInput

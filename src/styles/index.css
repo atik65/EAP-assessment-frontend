@@ -188,3 +188,14 @@
 .appSidebarScrollbar:hover {
   scrollbar-color: rgba(100, 100, 100, 0.7) transparent;
 }
+
+/* Notice component shimmer animation */
+@keyframes shimmer {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(200%);
+  }
+}

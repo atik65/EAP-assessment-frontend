@@ -1,15 +1,17 @@
 import Image from "@/components/common/Image";
 import Text from "@/components/common/Text";
 import { cn } from "@/lib/utils";
+import Notice from "./notice/Notice";
 
 const AuthLayout = ({ title, subtitle, children, className }) => {
   return (
     <div
       className={cn(
         "relative flex min-h-screen items-center justify-center px-4 py-8",
-        className
+        className,
       )}
     >
+      <Notice />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(15,107,71,0.08),transparent_45%)]" />
       <div className="relative z-10 w-full max-w-lg rounded-3xl md:bg-white md:p-8 md:ring-1 ring-emerald-900/5">
         <div className="flex flex-col items-center gap-3 text-center">

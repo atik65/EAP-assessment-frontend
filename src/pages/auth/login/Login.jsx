@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthLayout from "../AuthLayout";
 import authApi from "../api";
 import loginSchema from "./schema";
+import Notice from "../notice/Notice";
 import { setCookie } from "@/lib/cookies";
 import { setStoredValue } from "@/lib/storage";
 import { useState } from "react";
@@ -74,6 +75,7 @@ export default function Login() {
       // title="Sign in to your account"
       subtitle="Enter your email and password to access your account."
     >
+      {/* <Notice /> */}
       <FormikWrapper form={form} className="space-y-6">
         <div className="space-y-4">
           <FieldInput
