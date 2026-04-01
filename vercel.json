@@ -1,9 +1,12 @@
 {
-  "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/api/:path*/",
+      "destination": "https://eap-assessment-backend.onrender.com/api/:path*/"
+    },
+    {
       "source": "/api/:path*",
-      "destination": "https://eap-assessment-backend.onrender.com/api/:path*"
+      "destination": "https://eap-assessment-backend.onrender.com/api/:path*/"
     },
     {
       "source": "/uploads/:path*",
