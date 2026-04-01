@@ -26,6 +26,7 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import { useNavigate } from "react-router-dom";
+import useProfile from "@/hooks/useProfile";
 
 const data = {
   intro: {
@@ -109,6 +110,7 @@ const data = {
 
 export function AppSidebar({ ...props }) {
   const navigate = useNavigate();
+  const { userProfile } = useProfile();
 
   return (
     <Sidebar className={"border-none "} collapsible="icon" {...props}>
@@ -125,7 +127,7 @@ export function AppSidebar({ ...props }) {
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter className={"border-r "}>
-        {/* <NavUser user={data.user} /> */}
+        {userProfile && <NavUser user={userProfile} />}
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

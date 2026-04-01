@@ -8,7 +8,7 @@ import AuthLayout from "../AuthLayout";
 import authApi from "../api";
 import loginSchema from "./schema";
 import { setCookie } from "@/lib/cookies";
-import { toast } from "sonner";
+import { setStoredValue } from "@/lib/storage";
 import { useState } from "react";
 
 export default function Login() {
@@ -27,7 +27,7 @@ export default function Login() {
 
   // Demo login handler
   function handleDemoLogin() {
-    form.setValue("email", "atik.hasan.dev@gmail.com");
+    form.setValue("email", "admin@gmail.com");
     form.setValue("password", "password");
     setIsDemo(true);
     form.handleSubmit(onSubmit)();
@@ -42,17 +42,10 @@ export default function Login() {
         api: authApi.login,
         toast: false,
         handleDone: async (res) => {
-          // if (res?.data?.otp_type) {
-          //   navigate("/verify-otp", {
-          //     state: { email: data.email, type: res.data.otp_type },
-          //   });
-          // } else {
-          //   setCookie("signedIn", "true");
-          //   navigate("/");
-          // }
-
-          // console.log(res);
-          // return;
+          // Store user profile in encrypted localStorage
+          if (res?.data) {
+            setStoredValue("userProfile", res.data);
+          }
 
           setCookie("signedIn", "true");
           navigate("/");

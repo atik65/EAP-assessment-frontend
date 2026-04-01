@@ -52,9 +52,9 @@ const AdminLayout = ({ children }) => {
 export default AdminLayout;
 
 const LayoutHeader = () => {
-  // const { userProfile, isLoadingProfile } = useProfile();
-  const userProfile = null; // Placeholder for user profile
-  const { isLoadingProfile } = false;
+  const { userProfile, isLoadingProfile } = useProfile();
+  // const userProfile = null; // Placeholder for user profile
+  // const { isLoadingProfile } = false;
 
   const handleLogout = async () => {
     await logout();

@@ -15,7 +15,7 @@ export default async function logout() {
     console.error("Logout API error:", error);
   } finally {
     removeCookie("signedIn");
-    // removeStoredValue("deskSession");
+    removeStoredValue("userProfile");
     window.location.href = "/login";
   }
 }

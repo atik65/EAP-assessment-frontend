@@ -1,10 +1,10 @@
-const endpoint = "/api/admin/profile";
+const endpoint = "/api/auth";
 
 const profileApi = {
   cacheKey: "userProfile",
   show: {
     endpoint,
-    path: "/show",
+    path: "/me",
     method: "get",
   },
   update: {

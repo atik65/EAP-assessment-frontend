@@ -10,7 +10,7 @@ const useProfile = () => {
     api: profileApi.show,
     cacheKey: profileApi.cacheKey,
   });
-  const userProfile = profileData?.data || {};
+  const userProfile = profileData || {};
 
   return { userProfile, isLoadingProfile, profileError };
 };

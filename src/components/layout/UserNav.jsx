@@ -13,20 +13,24 @@ import {
 import { toast } from "sonner";
 
 export const UserNav = ({ userProfile, onLogout }) => {
+  // console.log("UserNav render - userProfile:", userProfile);
+
   const navigate = useNavigate();
 
   const getInitials = () => {
-    if (!userProfile?.first_name) return "U";
-    const firstInitial = userProfile.first_name.charAt(0).toUpperCase();
-    const lastInitial = userProfile.last_name
-      ? userProfile.last_name.charAt(0).toUpperCase()
-      : "";
-    return `${firstInitial}${lastInitial}`;
+    if (!userProfile?.username) return "U";
+    const firstInitial = userProfile.username.charAt(0).toUpperCase();
+    return firstInitial;
   };
 
   const getUserName = () => {
-    if (!userProfile?.first_name) return "User";
-    return `${userProfile.first_name} ${userProfile.last_name || ""}`;
+    if (!userProfile?.username) return "User";
+    return userProfile.username;
+  };
+
+  const getUserRole = () => {
+    if (!userProfile?.role) return "";
+    return userProfile.role.charAt(0).toUpperCase() + userProfile.role.slice(1);
   };
 
   return (
@@ -57,10 +61,15 @@ export const UserNav = ({ userProfile, onLogout }) => {
               </AvatarFallback>
             </Avatar>
             <div className="flex flex-col space-y-0.5">
-              <p className="text-sm font-medium">{getUserName()}</p>
+              {/* <p className="text-sm font-medium"> username: {getUserName()}</p> */}
               <p className="text-xs text-muted-foreground">
                 {userProfile?.email || ""}
               </p>
+              {userProfile?.role && (
+                <p className="text-xs text-muted-foreground chip font-medium ">
+                  Role: {getUserRole()}
+                </p>
+              )}
             </div>
           </div>
         </DropdownMenuLabel>
