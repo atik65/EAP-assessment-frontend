@@ -5,7 +5,7 @@
 **Live Demo:** [https://eap-assessment-frontend.vercel.app](https://eap-assessment-frontend.vercel.app)
 
 [![React](https://img.shields.io/badge/React-18+-blue.svg?logo=react)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg?logo=typescript)](https://www.typescriptlang.org/)
+
 [![Vite](https://img.shields.io/badge/Vite-5.0+-646CFF.svg?logo=vite)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0+-38B2AC.svg?logo=tailwind-css)](https://tailwindcss.com/)
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=flat&logo=vercel)](https://eap-assessment-frontend.vercel.app)
@@ -16,7 +16,7 @@
 
 ## 📋 Overview
 
-A sleek, responsive React frontend built with TypeScript and Vite that provides an intuitive interface for complete inventory and order management. Features real-time dashboard analytics, advanced product filtering, order processing workflows, and smart restock queue management.
+A sleek, responsive React frontend built with JavaScript and Vite that provides an intuitive interface for complete inventory and order management. Features real-time dashboard analytics, advanced product filtering, order processing workflows, and smart restock queue management.
 
 **Perfect for:** E-commerce platforms, warehouse management interfaces, retail POS systems, or any business requiring robust inventory control dashboards.
 
@@ -84,7 +84,6 @@ A sleek, responsive React frontend built with TypeScript and Vite that provides 
 
 **Core Framework:**
 - React 18+ (Hooks, Context API)
-- TypeScript 5.0+ (Type safety)
 - Vite 5.0+ (Lightning-fast HMR)
 
 **UI & Styling:**
@@ -108,7 +107,6 @@ A sleek, responsive React frontend built with TypeScript and Vite that provides 
 
 **Additional Tools:**
 - ESLint & Prettier (Code quality)
-- TypeScript ESLint (Type-aware linting)
 
 ---
 
@@ -412,37 +410,10 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ### Code Style
 - Use functional components with hooks
-- Follow TypeScript best practices
 - Implement proper error boundaries
 - Use semantic HTML elements
 - Follow Tailwind CSS conventions
 
-### Component Structure
-```typescript
-// Example component structure
-interface ComponentProps {
-  // Props definition
-}
-
-export const Component: React.FC<ComponentProps> = ({ ...props }) => {
-  // Hooks
-  // Handlers
-  // Render
-  return (
-    // JSX
-  );
-};
-```
-
-### API Service Pattern
-```typescript
-// services/api.ts
-export const apiService = {
-  get: <T>(url: string) => axios.get<T>(url),
-  post: <T>(url: string, data: any) => axios.post<T>(url, data),
-  // ...
-};
-```
 
 ---
 
@@ -508,7 +479,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- Built with [React](https://reactjs.org/) & [TypeScript](https://www.typescriptlang.org/)
+- Built with [React](https://reactjs.org/) 
 - UI components from [Shadcn/ui](https://ui.shadcn.com/)
 - Styled with [Tailwind CSS](https://tailwindcss.com/)
 - Icons from [Lucide React](https://lucide.dev/)
@@ -521,7 +492,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Components:** 50+ reusable components
 - **Pages:** 8 main routes
 - **API Integration:** 25+ endpoints
-- **Type Coverage:** 100% TypeScript
 - **Bundle Size:** ~180KB (gzipped)
 
 ---
