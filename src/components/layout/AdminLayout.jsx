@@ -60,6 +60,8 @@ const LayoutHeader = () => {
     await logout();
   };
 
+  const currentPath = window.location.pathname;
+
   return (
     <div className="flex items-center justify-between h-full gap-2 px-4 bg-(--color-erp-primary) text-white shadow-sm w-full">
       <div className="flex items-center gap-2">
@@ -71,16 +73,28 @@ const LayoutHeader = () => {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem className="hidden md:block ">
-              <BreadcrumbLink className={"text-gray-400"} href="#">
-                Building Your Application
+              <BreadcrumbLink className={"text-white"} href="/">
+                Dashboard
               </BreadcrumbLink>
             </BreadcrumbItem>
-            <BreadcrumbSeparator className="hidden md:block" />
-            <BreadcrumbItem>
-              <BreadcrumbPage className={"text-white"}>
-                Data Fetching
-              </BreadcrumbPage>
-            </BreadcrumbItem>
+            {currentPath !== "/" && (
+              <BreadcrumbSeparator className="hidden md:block text-white" />
+            )}
+
+            {currentPath !== "/" && (
+              <BreadcrumbItem>
+                <BreadcrumbLink
+                  className={"text-white capitalize"}
+                  href={currentPath}
+                >
+                  {currentPath
+                    ?.split("/")
+                    ?.filter(Boolean)
+                    ?.slice(-1)[0]
+                    ?.replace(/-/g, " ") || "Dashboard"}
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+            )}
           </BreadcrumbList>
         </Breadcrumb>
       </div>
