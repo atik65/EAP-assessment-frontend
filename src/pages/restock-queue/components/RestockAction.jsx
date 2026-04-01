@@ -63,7 +63,7 @@ const RestockAction = ({ open, onClose, queueItem = null }) => {
       <SheetContent className="sm:max-w-135 overflow-y-auto">
         <SheetHeader>
           <SheetTitle className="flex items-center gap-2">
-            <PackagePlus className="h-5 w-5 text-emerald-600" />
+            <PackagePlus className="h-5 w-5 text-(--color-erp-primary)" />
             Restock Product
           </SheetTitle>
           <SheetDescription>
@@ -124,7 +124,7 @@ const RestockAction = ({ open, onClose, queueItem = null }) => {
                 <Button
                   type="submit"
                   disabled={isPending || !form.formState.isValid}
-                  className="flex-1 bg-emerald-600 hover:bg-emerald-700"
+                  className="flex-1 bg-(--color-erp-primary) hover:bg-erp-primary/90 text-white"
                 >
                   {isPending ? (
                     <>

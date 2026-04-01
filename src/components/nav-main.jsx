@@ -15,11 +15,19 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
+import { Link, useLocation } from "react-router-dom";
 
 export function NavMain({ items, groupLabel = "" }) {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
   return (
     <SidebarGroup>
-      {groupLabel && <SidebarGroupLabel>{groupLabel}</SidebarGroupLabel>}
+      {groupLabel && (
+        <SidebarGroupLabel className={"text-[#9CA3AF]"}>
+          {groupLabel}
+        </SidebarGroupLabel>
+      )}
       <SidebarMenu>
         {items.map((item) => (
           <Collapsible
@@ -31,7 +39,10 @@ export function NavMain({ items, groupLabel = "" }) {
             {item?.items ? (
               <SidebarMenuItem>
                 <CollapsibleTrigger asChild>
-                  <SidebarMenuButton tooltip={item.title}>
+                  <SidebarMenuButton
+                    className={"text-[#9CA3AF] "}
+                    tooltip={item.title}
+                  >
                     {item.icon && <item.icon />}
                     <span>{item.title}</span>
                     <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
@@ -41,7 +52,10 @@ export function NavMain({ items, groupLabel = "" }) {
                   <SidebarMenuSub>
                     {item.items?.map((subItem) => (
                       <SidebarMenuSubItem key={subItem.title}>
-                        <SidebarMenuSubButton asChild>
+                        <SidebarMenuSubButton
+                          className={"text-[#9CA3AF]"}
+                          asChild
+                        >
                           <a href={subItem.url}>
                             <span>{subItem.title}</span>
                           </a>
@@ -54,15 +68,17 @@ export function NavMain({ items, groupLabel = "" }) {
             ) : (
               <SidebarMenuItem>
                 <SidebarMenuButton
-                  className={
-                    "py-5 text-base  hover:bg-(--color-erp-primary) hover:text-accent"
-                  }
+                  variant="default"
+                  className={`text-gray-900 hover:bg-[#8552FD] hover:text-white py-5  ${
+                    currentPath === item.url ? "bg-[#8552FD] text-white" : ""
+                  }`}
+                  tooltip={item.title}
                   asChild
                 >
-                  <a href={item.url}>
+                  <Link to={item.url}>
                     <item.icon />
                     <span>{item.title}</span>
-                  </a>
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             )}
