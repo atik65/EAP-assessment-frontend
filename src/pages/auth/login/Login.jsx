@@ -126,6 +126,11 @@ export default function Login() {
               ? "Signing in..."
               : "Use Demo Account (Admin Mode)"}
           </Button>
+          {/* signup will create a normal role account -- so access admin try admin mode */}
+          <small className="text-[11px] text-muted-foreground text-center">
+            Use the demo account to explore admin features. For regular access,
+            please sign up with your email.
+          </small>
 
           {/* don't have an account? */}
           <div className="flex flex-col items-center justify-between text-sm text-muted-foreground">
