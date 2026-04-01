@@ -97,10 +97,12 @@ export function AppSidebarHeader({ intro }) {
           {/* <intro.logo className="size-4 " /> */}
           {/* <Image src={"/logo.png"} /> */}
           <div
-            className=" h-10 w-10 group-data-[collapsible=icon]:w-8
-          group-data-[collapsible=icon]:h-8  bg-[#8552FD] border rounded-md flex justify-around items-center text-white font-bold "
+            className="h-10 w-10 group-data-[collapsible=icon]:w-8
+          group-data-[collapsible=icon]:h-8  bg-[#8552FD] border-0 rounded-md flex justify-around items-center text-white font-bold object-cover"
           >
-            SI
+            {/* SI */}
+
+            <img src="/vite.svg" className="scale-100" alt="" />
           </div>
           {/* </div> */}
           <div className="group-data-[collapsible=icon]:hidden grid flex-1 text-left text-sm leading-tight">
