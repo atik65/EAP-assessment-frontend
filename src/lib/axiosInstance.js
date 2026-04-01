@@ -1,4 +1,3 @@
-import config from "@/config/base";
 import axios from "axios";
 
 const instanceApi = axios.create({
