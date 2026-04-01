@@ -14,13 +14,14 @@ import CategoriesList from "@/pages/categories/CategoriesList";
 import ProductsList from "@/pages/products/ProductsList";
 import RestockQueueList from "@/pages/restock-queue/RestockQueueList";
 import OrdersList from "@/pages/orders/OrdersList";
+import Dashboard from "@/pages/dashboard/Dashboard";
 
 export const router = createBrowserRouter([
   {
     element: <ProtectedRoute />,
     children: [
       // { path: "/", element: <Overview /> },
-      { path: "/", element: <CategoriesList /> },
+      { path: "/", element: <Dashboard /> },
       { path: "/profile", element: <Profile /> },
       { path: "/profile/update", element: <UpdateProfile /> },
       { path: "/profile/change-password", element: <ChangePassword /> },
