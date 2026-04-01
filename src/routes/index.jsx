@@ -15,6 +15,7 @@ import ProductsList from "@/pages/products/ProductsList";
 import RestockQueueList from "@/pages/restock-queue/RestockQueueList";
 import OrdersList from "@/pages/orders/OrdersList";
 import Dashboard from "@/pages/dashboard/Dashboard";
+import ActivityLog from "@/pages/activity-log/ActivityLog";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +32,7 @@ export const router = createBrowserRouter([
       { path: "/products", element: <ProductsList /> },
       { path: "/restock-queue", element: <RestockQueueList /> },
       { path: "/orders", element: <OrdersList /> },
+      { path: "/activity-logs", element: <ActivityLog /> },
 
       // {
       //   path: "/settings",
