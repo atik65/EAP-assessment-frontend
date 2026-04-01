@@ -5,7 +5,11 @@
       "destination": "https://eap-assessment-backend.onrender.com/api/:path*"
     },
     {
-      "source": "/(.*)",
+      "source": "/uploads/:path*",
+      "destination": "https://eap-assessment-backend.onrender.com/uploads/:path*"
+    },
+    {
+      "source": "/:path((?!api|uploads).*)*",
       "destination": "/index.html"
     }
   ]
