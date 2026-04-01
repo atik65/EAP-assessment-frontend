@@ -134,6 +134,7 @@ const AddEdit = ({ open, onClose }) => {
                             label: "name",
                           }}
                           required
+                          multiSelect
                         />
 
                         <FieldInput

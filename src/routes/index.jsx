@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
     element: <PublicRoute />,
     children: [
       { path: "/login", element: <Login /> },
-      { path: "/register", element: <Signup /> },
+      { path: "/signup", element: <Signup /> },
       { path: "/forgot-password", element: <ForgotPassword /> },
       { path: "/verify-otp", element: <VerifyOtp /> },
       { path: "/reset-password", element: <ResetPassword /> },

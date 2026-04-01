@@ -126,6 +126,17 @@ export default function Login() {
               ? "Signing in..."
               : "Sign in with demo account"}
           </Button>
+
+          {/* don't have an account? */}
+          <div className="flex flex-col items-center justify-between text-sm text-muted-foreground">
+            <span>Don't have an account?</span>
+            <Link
+              to="/signup"
+              className="font-medium text-purple-800 hover:underline dark:text-emerald-200"
+            >
+              Sign up
+            </Link>
+          </div>
         </div>
       </FormikWrapper>
     </AuthLayout>

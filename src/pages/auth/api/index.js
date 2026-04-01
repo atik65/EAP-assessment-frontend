@@ -7,12 +7,11 @@ const authApi = {
     path: "/http-login/",
     method: "post",
   },
-
-  // register: {
-  //   endpoint,
-  //   path: "/register",
-  //   method: "post",
-  // },
+  register: {
+    endpoint,
+    path: "/register/",
+    method: "post",
+  },
   // forgotPassword: {
   //   endpoint,
   //   path: "/forgot-password",
