@@ -5,7 +5,6 @@
 **Live Demo:** [https://eap-assessment-frontend.vercel.app](https://eap-assessment-frontend.vercel.app)
 
 [![React](https://img.shields.io/badge/React-18+-blue.svg?logo=react)](https://reactjs.org/)
-
 [![Vite](https://img.shields.io/badge/Vite-5.0+-646CFF.svg?logo=vite)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0+-38B2AC.svg?logo=tailwind-css)](https://tailwindcss.com/)
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=flat&logo=vercel)](https://eap-assessment-frontend.vercel.app)
