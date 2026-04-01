@@ -30,56 +30,11 @@ import useProfile from "@/hooks/useProfile";
 
 const data = {
   intro: {
-    title: "Admin Panel",
+    title: "Smart Inventory",
     logo: GalleryVerticalEnd,
   },
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
-  teams: [
-    {
-      name: "Acme   Inc.",
-      logo: GalleryVerticalEnd,
-      plan: "Enterprise",
-    },
-    {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Command,
-      plan: "Free",
-    },
-  ],
+
   navMain: [
-    // {
-    //   title: "Parent Menu",
-    //   url: "#",
-    //   icon: Frame,
-    //   isActive: true,
-    //   items: [
-    //     {
-    //       title: "Menu Item One",
-    //       url: "#",
-    //     },
-    //     {
-    //       title: "Menu Item Two",
-    //       url: "#",
-    //     },
-    //     {
-    //       title: "Menu Item Three",
-    //       url: "#",
-    //     },
-    //     {
-    //       title: "Menu Item Four",
-    //       url: "#",
-    //     },
-    //   ],
-    // },
     {
       title: "Categories",
       url: "/categories",

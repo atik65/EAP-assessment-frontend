@@ -70,8 +70,8 @@ export default function Login() {
 
   return (
     <AuthLayout
-      // title="Sign in to Smart Inventory & Order Management System"
-      title="Sign in to your account"
+      title="Sign in to Smart Inventory & Order Management System"
+      // title="Sign in to your account"
       subtitle="Enter your email and password to access your account."
     >
       <FormikWrapper form={form} className="space-y-6">

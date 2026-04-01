@@ -100,7 +100,7 @@ export function AppSidebarHeader({ intro }) {
             className=" h-10 w-10 group-data-[collapsible=icon]:w-8
           group-data-[collapsible=icon]:h-8  bg-[#8552FD] border rounded-md flex justify-around items-center text-white font-bold "
           >
-            MP
+            SI
           </div>
           {/* </div> */}
           <div className="group-data-[collapsible=icon]:hidden grid flex-1 text-left text-sm leading-tight">
