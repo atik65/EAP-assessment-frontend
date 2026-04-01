@@ -124,7 +124,7 @@ export default function Login() {
           >
             {isSubmitting && isDemo
               ? "Signing in..."
-              : "Sign in with demo account"}
+              : "Use Demo Account (Admin Mode)"}
           </Button>
 
           {/* don't have an account? */}
