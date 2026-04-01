@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://c6hjkkw4-8000.asse.devtunnels.ms/api/:path*"
+      "destination": "https://eap-assessment-backend.onrender.com/api/:path*"
     },
     {
       "source": "/(.*)",
