@@ -17,6 +17,8 @@ import { orderSchema } from "../utils/schema";
 import { revalidateCache } from "@/lib/queryInstance";
 import productApi from "@/pages/products/api";
 import { useFieldArray } from "react-hook-form";
+import { toast } from "sonner";
+import { useEffect } from "react";
 
 const AddEdit = ({ open, onClose }) => {
   const { mutateAsync, isPending } = useRequest();
@@ -32,6 +34,17 @@ const AddEdit = ({ open, onClose }) => {
     control: form.control,
     name: "items",
   });
+
+  // Show toast for duplicate products error
+  useEffect(() => {
+    const itemsError = form.formState.errors.items;
+    if (itemsError?.root?.message) {
+      toast.error("Validation Error", {
+        description: itemsError.root.message,
+        duration: 4000,
+      });
+    }
+  }, [form.formState.errors.items]);
 
   async function onSubmit(data) {
     try {
@@ -67,6 +80,8 @@ const AddEdit = ({ open, onClose }) => {
       remove(index);
     }
   };
+
+  console.log("Form errors:", form.formState.errors);
 
   return (
     <Sheet open={open} onOpenChange={handleClose}>
@@ -125,6 +140,7 @@ const AddEdit = ({ open, onClose }) => {
                         <Select
                           form={form}
                           name={`items.${index}.product_id`}
+                          label="Product"
                           placeholder="Select product"
                           api={productApi.list}
                           cacheKey={productApi.cacheKey}
@@ -134,7 +150,6 @@ const AddEdit = ({ open, onClose }) => {
                             label: "name",
                           }}
                           required
-                          multiSelect
                         />
 
                         <FieldInput
