@@ -1,4 +1,5 @@
-import { User, LogOut, KeyRound } from "lucide-react";
+import { useState } from "react";
+import { User, LogOut, KeyRound, Loader2 } from "lucide-react";
 import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
@@ -16,6 +17,7 @@ export const UserNav = ({ userProfile, onLogout }) => {
   // console.log("UserNav render - userProfile:", userProfile);
 
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
 
   const getInitials = () => {
     if (!userProfile?.username) return "U";
@@ -34,7 +36,7 @@ export const UserNav = ({ userProfile, onLogout }) => {
   };
 
   return (
-    <DropdownMenu>
+    <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
         <button
           type="button"
@@ -103,14 +105,46 @@ export const UserNav = ({ userProfile, onLogout }) => {
           <span>Notifications</span>
         </DropdownMenuItem> */}
         <DropdownMenuSeparator />
-        <DropdownMenuItem
-          className="cursor-pointer text-red-600 focus:text-red-600"
-          onClick={onLogout}
-        >
-          <LogOut className="mr-2 h-4 w-4" />
-          <span>Logout</span>
-        </DropdownMenuItem>
+
+        {/* logout */}
+
+        <LogOutItem onLogout={onLogout} setOpen={setOpen} />
+
       </DropdownMenuContent>
     </DropdownMenu>
+  );
+};
+
+
+
+export const LogOutItem = ({ onLogout, setOpen }) => {
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  return (
+    <DropdownMenuItem
+      className="cursor-pointer text-red-600 focus:text-red-600 disabled:opacity-50 disabled:cursor-not-allowed"
+      disabled={isLoggingOut}
+      onSelect={async (e) => {
+        e.preventDefault();
+        if (isLoggingOut) return;
+
+        try {
+          setIsLoggingOut(true);
+          await onLogout();
+          setOpen(false);
+        } catch (error) {
+          console.error("Logout failed:", error);
+        } finally {
+          setIsLoggingOut(false);
+        }
+      }}
+    >
+      {isLoggingOut ? (
+        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+      ) : (
+        <LogOut className="mr-2 h-4 w-4" />
+      )}
+      <span>{isLoggingOut ? "Logging out..." : "Logout"}</span>
+    </DropdownMenuItem>
   );
 };

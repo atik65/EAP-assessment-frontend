@@ -24,8 +24,11 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import logout from "@/lib/logout";
+import { LogOutItem } from "./layout/UserNav";
+import { useState } from "react";
 
 export function NavUser({ user }) {
+  const [open, setOpen] = useState(false);
   const { isMobile } = useSidebar();
 
   const getInitials = () => {
@@ -50,7 +53,7 @@ export function NavUser({ user }) {
   return (
     <SidebarMenu>
       <SidebarMenuItem>
-        <DropdownMenu>
+        <DropdownMenu open={open} onOpenChange={setOpen}>
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
               size="lg"
@@ -101,13 +104,12 @@ export function NavUser({ user }) {
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
-              <LogOut />
-              Log out
-            </DropdownMenuItem>
+            <LogOutItem onLogout={handleLogout} setOpen={setOpen} />
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>
     </SidebarMenu>
   );
 }
+
+
