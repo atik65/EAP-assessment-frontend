@@ -62,8 +62,7 @@ const ActionDialogDelete = ({ request, trigger, name }) => {
             Are you absolutely sure to Delete {name}?
           </AlertDialogTitle>
           <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            This action cannot be undone. This will permanently delete {name}.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
