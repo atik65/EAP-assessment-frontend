@@ -67,7 +67,7 @@ export function AppSidebar({ ...props }) {
   const { userProfile } = useProfile();
 
   return (
-    <Sidebar className={"border-none "} collapsible="icon" {...props}>
+    <Sidebar  className={"border-none "} collapsible="icon" {...props}>
       <SidebarHeader
         onClick={() => navigate("/")}
         className={"bg-(--color-erp-primary)  text-white "}

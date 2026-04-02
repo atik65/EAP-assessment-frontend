@@ -6,6 +6,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import {
+  Sidebar,
   SidebarGroup,
   SidebarGroupLabel,
   SidebarMenu,
@@ -16,19 +17,37 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { useSidebar } from "@/components/ui/sidebar"
+
 
 export function NavMain({ items, groupLabel = "" }) {
+
+ const {
+    state,
+    open,
+    setOpen,
+    openMobile,
+    setOpenMobile,
+    isMobile,
+    toggleSidebar,
+  } = useSidebar()
+ 
+
   const location = useLocation();
   const currentPath = location.pathname;
 
+
+
+
   return (
-    <SidebarGroup>
+    <SidebarGroup >
       {groupLabel && (
         <SidebarGroupLabel className={"text-[#9CA3AF]"}>
           {groupLabel}
         </SidebarGroupLabel>
       )}
-      <SidebarMenu>
+       <SidebarMenu >
         {items.map((item) => (
           <Collapsible
             key={item.title}
@@ -73,7 +92,10 @@ export function NavMain({ items, groupLabel = "" }) {
                     currentPath === item.url ? "bg-[#8552FD] text-white" : ""
                   }`}
                   tooltip={item.title}
-                  asChild
+                    asChild
+                    onClick={() => {
+                      setOpenMobile(false);
+                    }}
                 >
                   <Link to={item.url}>
                     <item.icon />
@@ -85,6 +107,7 @@ export function NavMain({ items, groupLabel = "" }) {
           </Collapsible>
         ))}
       </SidebarMenu>
-    </SidebarGroup>
+     
+      </SidebarGroup>
   );
 }

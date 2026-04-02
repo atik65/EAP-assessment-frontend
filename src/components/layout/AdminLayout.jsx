@@ -12,14 +12,14 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "../ui/breadcrumb";
-import { ThemeToggle } from "../theme/theme-toggle";
-import { Button } from "../ui/button";
-import { Maximize2 } from "lucide-react";
+
 import logout from "@/lib/logout";
 import FullScreenControl from "../common/FullScreenControl";
 import { UserNav } from "./UserNav";
 
 const AdminLayout = ({ children }) => {
+
+  
   // const { userProfile, isLoadingProfile } = useProfile();
   // console.log("Profile from useProfile:", { userProfile, isLoadingProfile });
 
