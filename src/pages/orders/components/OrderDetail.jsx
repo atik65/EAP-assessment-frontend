@@ -49,7 +49,7 @@ const OrderDetail = ({ orderId, onBack }) => {
   const [selectedStatus, setSelectedStatus] = useState("");
   const { mutateAsync, isPending } = useRequest();
 
-  const { data, isLoading, refetch } = useApi({
+  const { data, isLoading, refetch, isFetching } = useApi({
     api: orderApi.show(orderId),
     cacheKey: [orderApi.cacheKey, orderId],
     trigger: !!orderId,
@@ -86,7 +86,7 @@ const OrderDetail = ({ orderId, onBack }) => {
     }
   };
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return <Loader />;
   }
 
